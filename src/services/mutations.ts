@@ -18,17 +18,19 @@ export function useCreateTodo() {
     },
 
     // when them mutation API call is successful
-    onSuccess: () => {
-      console.log("success");
-    },
-
-    // when the mutation is settled (either success or error)
-    onSettled: async (_, error) => {
+    onSuccess: async (_, error) => {
       console.log("settled");
       if (error) {
         console.log(error);
       } else {
         await queryClient.invalidateQueries({ queryKey: ["todos"] });
+      }
+    },
+
+    // when the mutation is settled
+    onSettled: (_, error) => {
+      if (error) {
+        console.log(error);
       }
     },
   });
