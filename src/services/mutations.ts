@@ -5,6 +5,8 @@ import { createTodo, deleteTodo, updateTodo } from "./api";
 export function useCreateTodo() {
   const queryClient = useQueryClient();
 
+  // https://tanstack.com/query/latest/docs/framework/react/guides/mutations
+
   return useMutation({
     mutationFn: (data: Todo) => createTodo(data),
     // at the start of the mutation
