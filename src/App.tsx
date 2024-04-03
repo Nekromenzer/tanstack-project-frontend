@@ -6,8 +6,8 @@ import Products from "./components/Products";
 function App() {
   return (
     <>
-      {/* <Todos /> */}
-      <Projects />
+      <Todos />
+      {/* <Projects /> */}
       {/* <Products /> */}
     </>
   );

@@ -20,21 +20,20 @@ export function useCreateTodo() {
     },
 
     // when them mutation API call is successful
-    onSuccess: async (_, error) => {
+    onSuccess: async () => {
       console.log("settled");
+
+    },
+
+    // when the mutation is settled
+    onSettled: async (_, error) => {
       if (error) {
         console.log(error);
       } else {
         await queryClient.invalidateQueries({ queryKey: ["todos"] });
       }
-    },
+    }
 
-    // when the mutation is settled
-    onSettled: (_, error) => {
-      if (error) {
-        console.log(error);
-      }
-    },
   });
 }
 
